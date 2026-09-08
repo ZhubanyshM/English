@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LingoSpark — английский в твоём ритме</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home" data-page="home"><span>✦</span> LingoSpark</a>
+      <nav>
+        <button class="nav-link active" data-page="home"><i>⌂</i> Главная</button>
+        <button class="nav-link" data-page="lesson"><i>▣</i> Учиться</button>
+        <button class="nav-link" data-page="vocab"><i>▤</i> Словарь</button>
+        <button class="nav-link" data-page="league"><i>♕</i> Лига</button>
+        <button class="nav-link" data-page="micro"><i>⚡</i> Микро-урок</button>
+      </nav>
+      <div class="streak-box"><span class="fire">🔥</span><div><b>12 дней</b><small>твоя серия</small></div><button aria-label="Подробнее о серии" class="round-btn" id="freezeInfo">?</button></div>
+      <div class="profile"><span class="avatar">Ж</span><div><b>Жубаныш</b><small>Новичок · A1</small></div><span>⌄</span></div>
+    </aside>
+
+    <main>
+      <header><button class="menu-toggle" aria-label="Меню">☰</button><div class="daily"><span>Сегодня</span><div class="progress"><span style="width:66%"></span></div><b>10 / 15 мин</b></div><div class="coins">✦ <b id="coinCount">320</b></div><button class="bell">♧<em></em></button></header>
+
+      <section class="page active" id="home">
+        <div class="hero card"><div><p class="eyebrow">Твой английский · без скуки</p><h1>Маленькие шаги.<br><span>Большая уверенность.</span></h1><p>Учись в своём ритме — всего 15 минут в день.</p><button class="primary go-lesson">Продолжить урок <span>→</span></button></div><div class="hero-art"><div class="sun"></div><div class="character">👩🏻‍🎓</div><div class="word-card card-one">Hello! <small>Привет!</small></div><div class="word-card card-two">★ +20 XP</div><div class="cloud c1">☁</div><div class="cloud c2">☁</div></div></div>
+        <div class="section-heading"><h2>Твой путь на сегодня</h2><button class="text-btn go-lesson">Открыть план →</button></div>
+        <div class="path-grid"><article class="task-card done"><div class="task-icon">✓</div><div><span>Разогрев</span><h3>Повтори 10 слов</h3><small>3 мин · Выполнено</small></div><b>+10</b></article><article class="task-card current go-lesson"><div class="task-icon">▶</div><div><span>Основной урок</span><h3>В кафе: заказываем кофе</h3><small>8 мин · Продолжить</small></div><b>+30</b></article><article class="task-card go-micro"><div class="task-icon">⚡</div><div><span>Быстрый рывок</span><h3>Микро-тренажёр</h3><small>3 мин · 10 вопросов</small></div><b>+15</b></article></div>
+        <div class="bottom-grid"><article class="coach card"><div class="coach-icon">💬</div><div><p class="eyebrow">AI DIALOGUE COACH</p><h2>Поговорим?</h2><p>Попрактикуй «заказ в кафе»<br>в безопасном диалоге.</p><button class="secondary" id="startCoach">Начать диалог</button></div><span class="coach-person">🤖</span></article><article class="goal card"><div class="goal-top"><span>Недельная цель</span><b>38 / 60 мин</b></div><div class="ring"><div>63<small>%</small></div></div><p>Ещё 22 мин — и ты получишь<br><b>+50 монет</b> 🎁</p></article></div>
+      </section>
+
+      <section class="page" id="lesson"><div class="crumb">Учиться <span>›</span> Unit 1 <span>›</span> Урок 4</div><div class="lesson-head"><div><p class="eyebrow">UNIT 1 · ЕДА И НАПИТКИ</p><h1>Заказываем кофе</h1><p>Научись делать простой заказ и понимать бариста.</p></div><div class="lesson-xp">🏆 <b>+30 XP</b><small>за урок</small></div></div><div class="lesson-layout"><article class="lesson-card card"><div class="lesson-step"><span>1</span><b>Послушай фразу</b><i>1 из 4</i></div><div class="phrase"><button class="speaker" data-say="I'd like a coffee, please.">🔊</button><h2>I'd like a coffee, please.</h2><p>Я бы хотел(а) кофе, пожалуйста.</p></div><div class="tips"><b>💡 Подсказка</b><p><em>I'd like</em> — вежливый способ сказать «я бы хотел».</p></div><button class="primary wide" id="nextLesson">Понятно, дальше <span>→</span></button></article><aside class="lesson-side"><article class="mini-card"><span>⏱</span><b>6 мин</b><small>осталось</small></article><article class="mini-card"><span>🔥</span><b>12 дней</b><small>серия</small></article><article class="coach-mini card"><span>🤖</span><div><b>Закрепи в диалоге</b><small>После урока — 3 мин с AI</small></div><button id="openCoachFromLesson">→</button></article></aside></div></section>
+
+      <section class="page" id="vocab"><div class="page-title"><div><p class="eyebrow">ТВОЯ КОЛЛЕКЦИЯ</p><h1>Личный словарь</h1><p>Слова, которые ты сохраняешь — и запоминаешь в контексте.</p></div><button class="primary" id="addWord">+ Добавить слово</button></div><div class="vocab-stats"><div><b>48</b><span>слов изучено</span></div><div><b>12</b><span>на повторение</span></div><div><b>86%</b><span>точность</span></div></div><div class="search">⌕ <input aria-label="Найти слово" placeholder="Найти слово..."><button>Все темы⌄</button></div><div class="words"><article class="word-card-full"><div class="image-emoji">☕</div><div><h3>coffee <button class="speaker" data-say="coffee">🔊</button></h3><p>/ˈkɒfi/ · <b>кофе</b></p><span class="tag">Еда и напитки</span></div><button class="more">•••</button></article><article class="word-card-full"><div class="image-emoji">🥐</div><div><h3>croissant <button class="speaker" data-say="croissant">🔊</button></h3><p>/ˈkrwæsɒ̃/ · <b>круассан</b></p><span class="tag">Еда и напитки</span></div><button class="more">•••</button></article><article class="word-card-full"><div class="image-emoji">👋</div><div><h3>hello <button class="speaker" data-say="hello">🔊</button></h3><p>/həˈləʊ/ · <b>привет</b></p><span class="tag purple">Приветствия</span></div><button class="more">•••</button></article></div></section>
+
+      <section class="page" id="league"><div class="league-hero"><div><p class="eyebrow">НЕДЕЛЯ 37 · ДО КОНЦА 2 ДНЯ</p><h1>Сапфировая лига 💎</h1><p>Топ-5 переходят в Рубиновую лигу. Ты отлично держишься!</p></div><div class="league-medal">💎<span>6</span></div></div><div class="league-info"><span>Твоя группа · уровень A1</span><span>10 участников</span><span>⚡ 38 мин за неделю</span></div><div class="leaderboard"><div class="leader top"><span class="rank">1</span><span class="avatar a1">A</span><b>Алина</b><small>🔥 19</small><strong>86 <i>XP</i></strong></div><div class="leader"><span class="rank">2</span><span class="avatar a2">M</span><b>Майкл</b><small>🔥 8</small><strong>72 <i>XP</i></strong></div><div class="leader me"><span class="rank">3</span><span class="avatar">Ж</span><b>Ты</b><small>🔥 12</small><strong>64 <i>XP</i></strong></div><div class="leader"><span class="rank">4</span><span class="avatar a4">C</span><b>София</b><small>🔥 5</small><strong>52 <i>XP</i></strong></div><div class="leader"><span class="rank">5</span><span class="avatar a5">Д</span><b>Данияр</b><small>🔥 3</small><strong>45 <i>XP</i></strong></div></div></section>
+
+      <section class="page" id="micro"><div class="micro-top"><div class="micro-bolt">⚡</div><div><p class="eyebrow">3 МИНУТЫ · 10 ВОПРОСОВ</p><h1>Быстрый рывок</h1><p>Идеально для очереди, кофе-брейка или дороги.</p></div></div><article class="quiz card"><div class="quiz-progress"><span id="quizNumber">Вопрос 1 из 10</span><div><i style="width:10%" id="quizBar"></i></div><b id="timer">03:00</b></div><div class="quiz-content"><span class="quiz-label">ВЫБЕРИ ПЕРЕВОД</span><h2>“Good morning!”</h2><div class="answers"><button data-correct="false">Добрый вечер!</button><button data-correct="true">Доброе утро!</button><button data-correct="false">Спокойной ночи!</button></div></div><p class="quiz-hint">💡 Ты получишь +15 XP за прохождение</p></article></section>
+    </main>
+  </div>
+  <div class="modal" id="coachModal" aria-hidden="true"><div class="modal-box"><button class="close" id="closeCoach">×</button><div class="coach-header"><span>🤖</span><div><b>AI Dialogue Coach</b><small><i></i> Онлайн · уровень A1</small></div></div><div class="chat" id="chat"><div class="bot-msg">Hi! I’m Mia, your café barista. What would you like to drink? ☕<button class="listen-msg" data-say="Hi! I’m Mia, your café barista. What would you like to drink?">🔊</button></div></div><div class="quick-replies"><button>I’d like a coffee, please.</button><button>A tea, please.</button></div><form class="chat-input" id="chatForm"><button type="button" id="mic" aria-label="Говорить">🎙</button><input id="chatText" placeholder="Напиши или скажи ответ..." autocomplete="off"><button class="send" aria-label="Отправить">↑</button></form><p class="ai-note">AI исправит ошибки и предложит более естественный вариант.</p></div></div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
