@@ -34,3 +34,8 @@ $('#usersList').addEventListener('click',async e=>{const b=e.target.closest('.de
 $$('.lesson-choice').forEach(choice=>choice.addEventListener('click',()=>{const d=choice.dataset;$$('.lesson-choice').forEach(x=>x.classList.toggle('selected',x===choice));$('#lessonTitle').textContent=d.title;$('#lessonDesc').textContent=d.desc;$('#lessonPhrase').textContent=d.phrase;$('#lessonTranslation').textContent=d.translation;$('#lessonSpeaker').dataset.say=d.phrase;$('#lessonUnit').textContent=`UNIT 1 · ${d.unit.toUpperCase()}`;$('#lessonCrumb').textContent=[...$$('.lesson-choice')].indexOf(choice)+1;lessonStep=1;$('.lesson-step i').textContent='1 из 4';showToast(`Выбран урок: ${d.title}`)}));
 async function bootstrap(){try{const token=localStorage.getItem(TOKEN_KEY);if(token){const data=await api('/api/me');setSession(data.user);if(data.user.role==='admin')renderUsers()}const state=await api('/api/bootstrap');if(!session())setTimeout(()=>openAuth(state.hasUsers?'login':'register'),350)}catch(e){showToast('Запустите сайт через сервер: node server.js')}}
 updateProfile();bootstrap();
+
+const THEME_KEY='lingospark-theme';
+function applyTheme(theme){const dark=theme==='dark';document.body.classList.toggle('dark',dark);$('#themeToggle').textContent=dark?'☀':'☾';$('#themeToggle').setAttribute('aria-label',dark?'Включить светлую тему':'Включить тёмную тему');}
+applyTheme(localStorage.getItem(THEME_KEY)||'light');
+$('#themeToggle').addEventListener('click',()=>{const theme=document.body.classList.contains('dark')?'light':'dark';localStorage.setItem(THEME_KEY,theme);applyTheme(theme)});
